@@ -3,6 +3,8 @@ package com.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class RemovePackDuplicatesTest {
 
 
@@ -20,7 +22,9 @@ public class RemovePackDuplicatesTest {
         String[] array = {"t", "t", "q", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e"};
         String[] expected = {"tt", "q", "aaa", "b", "cc", "aa", "d", "eee"};
         String[] actual = StringArrayUtils.packConsecutiveDuplicates(array);
+        System.out.println(Arrays.toString(actual));
         Assert.assertEquals(expected, actual);
+
     }
 
 
