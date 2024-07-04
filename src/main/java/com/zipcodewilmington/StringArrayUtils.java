@@ -79,12 +79,14 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+
+
         String joined = String.join(" ", array);
-        String joinedLower = joined.toUpperCase();
+        String joinedUpper = joined.toUpperCase();
         boolean isPangram = true;
         int charCount = 0;
         for (int i = 65; i <= 90; i++) {
-            if (!joinedLower.contains(Character.toString((char) i))) {
+            if (!joinedUpper.contains(Character.toString((char) i))) {
                 isPangram = false;
                 charCount++;
             } else if (charCount == 26) {
