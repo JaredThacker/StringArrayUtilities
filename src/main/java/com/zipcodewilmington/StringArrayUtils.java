@@ -80,20 +80,31 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPangramic(String[] array) {
 
+//        String joined = String.join(" ", array);
+//        String joinedUpper = joined.toUpperCase();
+//        boolean isPangram = true;
+//        int charCount = 0;
+//        for (int i = 65; i <= 90; i++) {
+//            if (!joinedUpper.contains(Character.toString((char) i))) {
+//                isPangram = false;
+//                charCount++;
+//            } else if (charCount == 26) {
+//                isPangram = true;
+//            }
+//        }
+//        return isPangram;
 
         String joined = String.join(" ", array);
-        String joinedUpper = joined.toUpperCase();
-        boolean isPangram = true;
-        int charCount = 0;
-        for (int i = 65; i <= 90; i++) {
-            if (!joinedUpper.contains(Character.toString((char) i))) {
-                isPangram = false;
-                charCount++;
-            } else if (charCount == 26) {
-                isPangram = true;
-            }
+        String joinedLower = joined.toLowerCase();
+        char[] removeSpacePunct = joinedLower.replaceAll("[^a-zA-Z]+", "").toCharArray();
+        Set<Character> set = new HashSet<Character>();
+
+        for (int i = 0; i < removeSpacePunct.length; i++) {
+            set.add(removeSpacePunct[i]);
         }
-        return isPangram;
+
+        return set.size() == 26;
+
     }
 
     /**
